@@ -9,3 +9,17 @@
 #flower_imgslider span{
     display:none;
 }
+
+.imgslider .flower_imgslider_button{
+    width: 140px;
+    height: 30px;
+    background-color: pink;
+    font-size: 20px;
+    display: block;
+    float: left;
+    border-radius: 5px;
+    border: 1px solid rgb(133, 133, 133);
+    margin-right: 20px;
+    margin-top: 20px;
+    font-weight: bold;
+}

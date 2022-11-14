@@ -1,4 +1,4 @@
-$('h1').css({
+$('#name').css({
     color:'red',
     height:'300px',
     backgroundColor:'#888'
@@ -24,12 +24,35 @@ $('#disappear').click(function(){
     });
 });
 
-var flower_numbar = 1;
-$('#naxt_flower_imgslider_button').click(function(){
-    if(flower_numbar > 4)
+
+// ------------이미지 슬라이더-----------------------------------
+//preOrNext== 0: 이전
+//preOrNext== 1: 다음
+var flower_number = 1;
+function flower_imgslider(preOrNext){ 
+    if(preOrNext == 0) //이전버튼을 눌렀을때 
     {
-        flower_numbar = 1;
+        flower_number--;
+        if(flower_number < 1)
+        {
+            flower_number = 4;
+        }
     }
-    $('#flower_imgslider').css("background-image","url(img/animation_flower"+ flower_numbar +".jpg)");
-    flower_numbar++;
+    else{ //다음버튼을 눌렀을때 
+        flower_number++;
+        if(flower_number > 4)
+        {
+            flower_number = 1;
+        }
+    }
+    return flower_number;
+}
+
+$('#naxt_flower_imgslider_button').click(function(){
+    $('#flower_imgslider').css("background-image","url(img/animation_flower"+ flower_imgslider(preOrNext = 1) + ".jpg)");
 });
+$('#previous_flower_imgslider_button').click(function(){
+    $('#flower_imgslider').css("background-image","url(img/animation_flower"+ flower_imgslider(preOrNext = 0)  +".jpg)");
+});
+
+//------------//이미지 슬라이더----------------------------------
